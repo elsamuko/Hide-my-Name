@@ -9,6 +9,7 @@
 <script>
 
     // https://en.wikipedia.org/wiki/IDN_homograph_attack
+    // http://shapecatcher.com
     var homographs = {
         'a' : ['\u0430'], // CYRILLIC SMALL LETTER A
         'b' : [],
@@ -16,13 +17,13 @@
         'd' : [],
         'e' : ['\u0435'], // CYRILLIC SMALL LETTER IE
         'f' : [],
-        'g' : [],
+        'g' : ['\u0261'], // LATIN SMALL LETTER SCRIPT G
         'h' : ['\u04bb'], // CYRILLIC SMALL LETTER SHHA
         'i' : ['\u0456'], // CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I
         'j' : ['\u0458'], // CYRILLIC SMALL LETTER JE
         'k' : [],
         'l' : [],
-        'm' : [],
+        'm' : [], // ['\u217f'], // SMALL ROMAN NUMERAL ONE THOUSAND
         'n' : [],
         'o' : ['\u043e','\u03bf'], // CYRILLIC SMALL LETTER O, GREEK SMALL LETTER OMICRON
         'p' : ['\u0440'], // CYRILLIC SMALL LETTER ER
@@ -30,12 +31,12 @@
         'r' : [],
         's' : ['\u0455'], // CYRILLIC SMALL LETTER DZE
         't' : [],
-        'u' : [],
+        'u' : ['\u057d'], // ARMENIAN SMALL LETTER SEH
         'v' : [],
         'w' : ['\u051d'], // CYRILLIC SMALL LETTER WE
         'x' : ['\u0445'], // CYRILLIC SMALL LETTER HA
         'y' : ['\u04af'], // CYRILLIC SMALL LETTER STRAIGHT U
-        'z' : [],
+        'z' : ['\u1d22'], // LATIN LETTER SMALL CAPITAL Z
 
         'A' : ['\u0410'], // CYRILLIC CAPITAL LETTER A
         'B' : ['\u0412'], // CYRILLIC CAPITAL LETTER VE
@@ -48,7 +49,7 @@
         'I' : ['\u0406', '\u04c0'], // CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I, CYRILLIC LETTER PALOCHKA
         'J' : ['\u0408'], // CYRILLIC CAPITAL LETTER JE
         'K' : ['\u041a'], // CYRILLIC CAPITAL LETTER KA
-        'L' : [],
+        'L' : ['\u14aa', '\u216c'], // CANADIAN SYLLABICS MA, ROMAN NUMERAL FIFTY
         'M' : ['\u041c'], // CYRILLIC CAPITAL LETTER EM
         'N' : [],
         'O' : ['\u041e', '\u039f'], // CYRILLIC CAPITAL LETTER O, GREEK CAPITAL LETTER OMICRON
@@ -95,7 +96,7 @@
             if(char > 126 || char < 32) {
                 result += "\\u" + toFourHex(char);
             } else {
-                result += char;
+                result += str[i];
             }
         }
 
