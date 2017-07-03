@@ -137,7 +137,7 @@
   <p>Generate homographed name.</p>
 
 <p>
-  Your name: <input id="name" type="text" name="name" value="">
+  Your name: <input id="name" type="text" name="name" value="" onKeyDown="if(event.keyCode==13) hide();">
 </p>
 
 <button onclick="hide()">Hide</button>
