@@ -17,8 +17,8 @@
         'd' : [],
         'e' : ['\u0435'], // CYRILLIC SMALL LETTER IE
         'f' : [],
-        'g' : ['\u0261'], // LATIN SMALL LETTER SCRIPT G
-        'h' : ['\u04bb'], // CYRILLIC SMALL LETTER SHHA
+        'g' : [], // ['\u0261'], // LATIN SMALL LETTER SCRIPT G
+        'h' : [], // ['\u04bb'], // CYRILLIC SMALL LETTER SHHA
         'i' : ['\u0456'], // CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I
         'j' : ['\u0458'], // CYRILLIC SMALL LETTER JE
         'k' : [],
@@ -27,16 +27,16 @@
         'n' : [],
         'o' : ['\u043e','\u03bf'], // CYRILLIC SMALL LETTER O, GREEK SMALL LETTER OMICRON
         'p' : ['\u0440'], // CYRILLIC SMALL LETTER ER
-        'q' : ['\u051b'], // CYRILLIC SMALL LETTER QA
+        'q' : [], // ['\u051b'], // CYRILLIC SMALL LETTER QA
         'r' : [],
         's' : ['\u0455'], // CYRILLIC SMALL LETTER DZE
         't' : [],
         'u' : [], // ['\u057d'], // ARMENIAN SMALL LETTER SEH
         'v' : [],
-        'w' : ['\u051d'], // CYRILLIC SMALL LETTER WE
+        'w' : [], // ['\u051d'], // CYRILLIC SMALL LETTER WE
         'x' : ['\u0445'], // CYRILLIC SMALL LETTER HA
-        'y' : ['\u04af'], // CYRILLIC SMALL LETTER STRAIGHT U
-        'z' : ['\u1d22'], // LATIN LETTER SMALL CAPITAL Z
+        'y' : [], // ['\u04af'], // CYRILLIC SMALL LETTER STRAIGHT U
+        'z' : [], // ['\u1d22'], // LATIN LETTER SMALL CAPITAL Z
 
         'A' : ['\u0410'], // CYRILLIC CAPITAL LETTER A
         'B' : ['\u0412'], // CYRILLIC CAPITAL LETTER VE
@@ -49,7 +49,7 @@
         'I' : ['\u0406', '\u04c0'], // CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I, CYRILLIC LETTER PALOCHKA
         'J' : ['\u0408'], // CYRILLIC CAPITAL LETTER JE
         'K' : ['\u041a'], // CYRILLIC CAPITAL LETTER KA
-        'L' : ['\u14aa', '\u216c'], // CANADIAN SYLLABICS MA, ROMAN NUMERAL FIFTY
+        'L' : ['\u216c', '\u14aa'], // ROMAN NUMERAL FIFTY, CANADIAN SYLLABICS MA
         'M' : ['\u041c'], // CYRILLIC CAPITAL LETTER EM
         'N' : [],
         'O' : ['\u041e', '\u039f'], // CYRILLIC CAPITAL LETTER O, GREEK CAPITAL LETTER OMICRON
@@ -60,7 +60,7 @@
         'T' : ['\u0422'], // CYRILLIC CAPITAL LETTER TE
         'U' : [],
         'V' : [],
-        'W' : ['\u051c'], // CYRILLIC CAPITAL LETTER WE
+        'W' : [], // ['\u051c'], // CYRILLIC CAPITAL LETTER WE
         'X' : ['\u0425'], // CYRILLIC CAPITAL LETTER HA
         'Y' : ['\u04ae'], // CYRILLIC CAPITAL LETTER STRAIGHT U
         'Z' : [],
@@ -121,6 +121,16 @@
         }
     }
 
+    function demo() {
+        var lower = "the quick brown fox jumps over the lazy dog";
+        var upper = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
+        var graphedLower = hideMyName(lower);
+        var graphedUpper = hideMyName(upper);
+        setText("result", lower + "<br>" + upper + "<br>" + graphedLower + "<br>" + graphedUpper );
+        setText("literal", "echo -e \"" + toUnicodeLiteral(graphedLower) + "\\n" + toUnicodeLiteral(graphedUpper) + "\"");
+        clearText("error");
+    }
+
 </script>
 
 <body>
@@ -131,6 +141,7 @@
 </p>
 
 <button onclick="hide()">Hide</button>
+<button onclick="demo()">Demo</button>
 
 <p id="result"></p>
 <p id="literal"></p>
