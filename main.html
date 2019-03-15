@@ -4,23 +4,34 @@
 <head>
     <title>Hide my Name</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="hidemyname.js"></script>
+    <link rel="stylesheet" href="bootstrap.4.3.1.min.css">
+    <style>
+    body { background-color: lightblue; }
+    </style>
 </head>
-
-<script src="hidemyname.js"></script>
-
 <body>
-  <p>Generate homographed name.</p>
 
-<p>
-  Your name: <input id="name" type="text" name="name" value="" onKeyDown="if(event.keyCode==13) hide();">
-</p>
+<div class="container mt-3">
+<p>Generate homographed name.</p>
 
-<button onclick="hide()">Hide</button>
-<button onclick="demo()">Demo</button>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Your name</span>
+  </div>
+  <input id="name" name="name" value="" onKeyDown="if(event.keyCode==13) hide();"
+         type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+</div>
+
+<button class="btn btn-primary" onclick="hide()">Hide</button>
+<button class="btn btn-info" onclick="demo()">Demo</button>
 
 <p id="result"></p>
 <p id="literal"></p>
 <p id="error"></p>
+
+</div>
 
 </body>
 </html>
