@@ -94,8 +94,14 @@ function toUnicodeLiteral(str) {
     return result;
 }
 
-function setText(id,text) { document.getElementById(id).innerHTML = text; }
-function clearText(id) { document.getElementById(id).innerHTML = "" }
+function setText(id,text) { 
+    document.getElementById(id).innerHTML = text; 
+    document.getElementById(id + "parent").style.display = "block";
+}
+function clearText(id) { 
+    document.getElementById(id).innerHTML = "";
+    document.getElementById(id + "parent").style.display = "none";
+}
 
 function hide() {
     var ascii   = document.getElementById("name").value;

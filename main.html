@@ -27,9 +27,24 @@
 <button class="btn btn-primary" onclick="hide()">Hide</button>
 <button class="btn btn-info" onclick="demo()">Demo</button>
 
-<p id="result"></p>
-<p id="literal"></p>
-<p id="error"></p>
+<!--result box-->
+<div id="resultparent" class="card mt-3">
+  <div class="card-body">
+    <p id="result" class="card-text"></p>
+  </div>
+</div>
+
+<!--command line box-->
+<div id="literalparent" class="card mt-3 bg-dark text-light">
+  <div class="card-body">
+    <p id="literal" class="card-text text-monospace"></p>
+  </div>
+</div>
+
+<!--error display-->
+<div id="errorparent" class="mt-3 alert alert-warning collapse">
+    <p id="error" class="card-text"></p>
+</div>
 
 </div>
 
