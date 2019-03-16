@@ -94,8 +94,18 @@ function toUnicodeLiteral(str) {
     return result;
 }
 
-function setText(id,text) { 
-    document.getElementById(id).innerHTML = text; 
+function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+}
+
+function setTextEscaped(id,text) {
+    document.getElementById(id).innerHTML = escapeHtml(text);
+    document.getElementById(id + "parent").style.display = "block";
+}
+function setText(id,text) {
+    document.getElementById(id).innerHTML = text;
     document.getElementById(id + "parent").style.display = "block";
 }
 function clearText(id) { 
@@ -107,8 +117,8 @@ function hide() {
     var ascii   = document.getElementById("name").value;
     var graphed = hideMyName(ascii);
     if( ascii !== graphed ) {
-        setText("result", graphed);
-        setText("literal", "echo -e \"" + toUnicodeLiteral(graphed) + "\"");
+        setTextEscaped("result", graphed);
+        setTextEscaped("literal", "echo -e \"" + toUnicodeLiteral(graphed) + "\"");
         clearText("error");
     } else {
         clearText("result");
