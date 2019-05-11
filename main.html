@@ -56,7 +56,7 @@
 <script>
   (function() {
     var res = window.location.hash.split('#');
-    if(res.length == 2) { document.getElementById("name").value = escapeHtml(res[1]); hide(); }
+    if(res.length == 2) { document.getElementById("name").value = escapeHtml(unescape(res[1])); hide(); }
     else { document.getElementById("name").value = ""; }
   })();
 </script>
