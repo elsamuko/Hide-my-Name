@@ -4,8 +4,13 @@ function hideMyName(ascii) {
 
         var graph = homographs[char];
 
-        if(graph && graph.length > 0) {
-            return graph[0];
+        // 1/3 chance to replace original character
+        var chance = Math.random() < 0.333;
+        // var chance = true;
+
+        if(graph && graph.length > 0 && chance) {
+            return graph[Math.floor(Math.random() * graph.length)];
+            // return '<font color="red">' + char + graph.join('') + "</font>";
         } else {
             return char;
         }
