@@ -53,5 +53,12 @@
 <a class="text-center fixed-bottom mb-2" href="https://github.com/elsamuko/Hide-my-Name">View on github</a>
 </div>
 
+<script>
+  (function() {
+    var res = window.location.hash.split('#');
+    if(res.length == 2) { document.getElementById("name").value = escapeHtml(res[1]); hide(); }
+    else { document.getElementById("name").value = ""; }
+  })();
+</script>
 </body>
 </html>
