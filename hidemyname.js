@@ -44,7 +44,7 @@ function toUnicodeLiteral(str) {
 
         if(cp > 65535) {
             ++i; // 5 digit unicodes have length 2
-            result += "\\U" + toFiveHex(cp);
+            result += "\\U000" + toFiveHex(cp);
         } else if(cp > 126 || cp < 32) {
             result += "\\u" + toFourHex(cp);
         } else {
