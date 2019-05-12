@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-mkdir -p /tmp/unicodes
+subdir='/tmp/unicodes'
+mkdir -p "$subdir"
 
 function getDescription {
-    if [ ! -f "/tmp/unicodes/$1" ]; then
+    if [ ! -f "$subdir/$1" ]; then
         local URL="https://unicode.org/cldr/utility/character.jsp?a=$1"
-        lynx --dump "$URL" > "/tmp/unicodes/$1"
+        lynx --dump "$URL" > "$subdir/$1"
     fi
-    sed '12q;d' "/tmp/unicodes/$1" | awk '{$1=$1};1'
+    sed '12q;d' "$subdir/$1" | awk '{$1=$1};1'
 }
 
 KEYS=( "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"
