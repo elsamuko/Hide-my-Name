@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-subdir='/tmp/unicodes'
-mkdir -p "$subdir"
+TMP_DIR='/tmp/unicodes'
+mkdir -p "$TMP_DIR"
 
 function getDescription {
-    if [ ! -f "$subdir/$1" ]; then
+    if [ ! -f "$TMP_DIR/$1" ]; then
         local URL="https://unicode.org/cldr/utility/character.jsp?a=$1"
-        lynx --dump "$URL" > "$subdir/$1"
+        lynx --dump "$URL" > "$TMP_DIR/$1"
     fi
-    sed '12q;d' "$subdir/$1" | awk '{$1=$1};1'
+    sed '12q;d' "$TMP_DIR/$1" | awk '{$1=$1};1'
 }
 
 KEYS=( "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"
@@ -85,12 +85,11 @@ for LETTER in "${KEYS[@]}"; do
     LAST=$(echo "$VALS" | awk '{print $NF}')
     for VAL in $VALS; do
         DESCRIPTION=$(getDescription "$VAL")
-        STARTING=""
         CLOSING="   "
         COMMA=","
-        if [ $VAL != $FIRST ]; then echo -ne "\n         "; fi
-        if [ $VAL == $LAST ]; then COMMA=""; CLOSING="],  "; fi
-        case ${#VAL} in
+        if [ "$VAL" != "$FIRST" ]; then echo -ne "\n         "; fi
+        if [ "$VAL" == "$LAST" ]; then COMMA=""; CLOSING="],  "; fi
+        case "${#VAL}" in
         4) echo -n " '\\u$VAL'$COMMA   "
            echo -ne " $CLOSING// \u$VAL $DESCRIPTION"
            ;;
