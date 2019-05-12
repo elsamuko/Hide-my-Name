@@ -3,10 +3,14 @@ function hideMyName(ascii) {
     var graphed = Array.prototype.map.call(ascii, function(char) {
 
         var graph = homographs[char];
-
-        // 1/3 chance to replace original character
+        var selection = document.getElementById("selector-chance").value;
+        
+        // 1/3 chance to replace original character (do this per default)
         var chance = Math.random() < 0.333;
-        // var chance = true;
+
+        if (selection == "2") {
+            var chance = true; // optionally, replace letters always
+        }
 
         if(graph && graph.length > 0 && chance) {
             return graph[Math.floor(Math.random() * graph.length)];
