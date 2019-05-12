@@ -3,16 +3,22 @@
 TMP_DIR='/tmp/unicodes'
 mkdir -p "$TMP_DIR"
 
+# remove ones, where unicode.org was down
+find "$TMP_DIR" -type f -exec grep -q "Service Temporarily Unavailable" {} \; -exec rm {} \;
+
 function getDescription {
     if [ ! -f "$TMP_DIR/$1" ]; then
         local URL="https://unicode.org/cldr/utility/character.jsp?a=$1"
-        lynx --dump "$URL" > "$TMP_DIR/$1"
+        lynx -dump "$URL" > "$TMP_DIR/$1"
     fi
+    # 12th line | trim
     sed '12q;d' "$TMP_DIR/$1" | awk '{$1=$1};1'
 }
 
 KEYS=( "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"
-       "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z" " " )
+       "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z"
+       "0" "1" "2" "3" "4" "5" "6" "7" "8" "9"
+       " " )
 
 declare -A ALPHABET
 ALPHABET['a']="1d5ba 0430"
@@ -68,6 +74,17 @@ ALPHABET['W']="1d5b6 ff37 051c"
 ALPHABET['X']="1d5b7 ff38 0425"
 ALPHABET['Y']="1d5b8 ff39 04ae"
 ALPHABET['Z']="1d5b9 ff3a"
+
+ALPHABET['0']="1d7e2"
+ALPHABET['1']="1d7e3"
+ALPHABET['2']="1d7e4"
+ALPHABET['3']="1d7e5"
+ALPHABET['4']="1d7e6"
+ALPHABET['5']="1d7e7"
+ALPHABET['6']="1d7e8"
+ALPHABET['7']="1d7e9"
+ALPHABET['8']="1d7ea"
+ALPHABET['9']="1d7eb"
 
 ALPHABET[' ']="00a0 2004 2005 2006 2008 2009 205F"
 

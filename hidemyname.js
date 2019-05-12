@@ -92,9 +92,14 @@ function hide() {
 function demo() {
     var lower = "the quick brown fox jumps over the lazy dog";
     var upper = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
+    var number = "0123456789";
     var graphedLower = hideMyName(lower);
     var graphedUpper = hideMyName(upper);
-    setText("result", lower + "<br>" + upper + "<br>" + graphedLower + "<br>" + graphedUpper );
-    setText("literal", "echo -e \"" + toUnicodeLiteral(graphedLower) + "\\n" + toUnicodeLiteral(graphedUpper) + "\"");
+    var graphedNumber = hideMyName(number);
+    setText("result", lower + "<br>" + upper + "<br>" + number + "<br>" +
+                      graphedLower + "<br>" + graphedUpper + "<br>" + graphedNumber);
+    setText("literal", "echo -e \"" + toUnicodeLiteral(graphedLower) + "\\n"
+                                    + toUnicodeLiteral(graphedUpper) + "\\n"
+                                    + toUnicodeLiteral(graphedNumber) + "\"");
     clearText("error");
 }

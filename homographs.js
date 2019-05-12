@@ -142,6 +142,16 @@ var homographs = {
           '\u04ae'    ],  // Ү CYRILLIC CAPITAL LETTER STRAIGHT U
   'Z' : [ '\u{1d5b9}',    // 𝖹 MATHEMATICAL SANS-SERIF CAPITAL Z
           '\uff3a'    ],  // Ｚ FULLWIDTH LATIN CAPITAL LETTER Z
+  '0' : [ '\u{1d7e2}' ],  // 𝟢 MATHEMATICAL SANS-SERIF DIGIT ZERO
+  '1' : [ '\u{1d7e3}' ],  // 𝟣 MATHEMATICAL SANS-SERIF DIGIT ONE
+  '2' : [ '\u{1d7e4}' ],  // 𝟤 MATHEMATICAL SANS-SERIF DIGIT TWO
+  '3' : [ '\u{1d7e5}' ],  // 𝟥 MATHEMATICAL SANS-SERIF DIGIT THREE
+  '4' : [ '\u{1d7e6}' ],  // 𝟦 MATHEMATICAL SANS-SERIF DIGIT FOUR
+  '5' : [ '\u{1d7e7}' ],  // 𝟧 MATHEMATICAL SANS-SERIF DIGIT FIVE
+  '6' : [ '\u{1d7e8}' ],  // 𝟨 MATHEMATICAL SANS-SERIF DIGIT SIX
+  '7' : [ '\u{1d7e9}' ],  // 𝟩 MATHEMATICAL SANS-SERIF DIGIT SEVEN
+  '8' : [ '\u{1d7ea}' ],  // 𝟪 MATHEMATICAL SANS-SERIF DIGIT EIGHT
+  '9' : [ '\u{1d7eb}' ],  // 𝟫 MATHEMATICAL SANS-SERIF DIGIT NINE
   ' ' : [ '\u00a0',       //   NO-BREAK SPACE
           '\u2004',       //   THREE-PER-EM SPACE
           '\u2005',       //   FOUR-PER-EM SPACE
