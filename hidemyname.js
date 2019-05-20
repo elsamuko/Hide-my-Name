@@ -66,23 +66,19 @@ function hideMyName(ascii) {
 
     var graphed = Array.prototype.map.call(ascii, function (char) {
 
-        var graph = filtered[char];
-        var selection = document.getElementById("selector-chance").value;
+        var graphs = filtered[char];
 
-        // 1/3 chance to replace original character (do this per default)
+        // x chance to replace original character
         var maybe = Math.random() < chance;
 
-        if (selection == "2") {
-            maybe = true; // optionally, replace letters always
-        }
-
-        if (graph && graph.length > 0 && maybe) {
-            return graph[Math.floor(Math.random() * graph.length)];
-            // return '<font color="red">' + char + graph.join('') + "</font>";
+        if (graphs && graphs.length > 0 && maybe) {
+            return graphs[Math.floor(Math.random() * graphs.length)];
+            // return '<font color="red">' + char + graphs.join('') + "</font>";
         } else {
             return char;
         }
     }).join('');
+
     return graphed;
 }
 
@@ -151,6 +147,11 @@ function hide() {
         var message = "Sorry, could not find any homographs for [" + ascii + "]";
         setText("error", message);
     }
+}
+
+function setChance(val) {
+    chance = val;
+    console.log(`chance set to ${chance}`);
 }
 
 function demo() {

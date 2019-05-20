@@ -1,69 +1,88 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
-    <title>Hide my Name</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="homographs.js"></script>
-    <script src="hidemyname.js"></script>
-    <link rel="stylesheet" href="bootstrap.4.3.1.min.css">
-    <style>
-    body { background-color: lightblue; }
-    </style>
+  <title>Hide my Name</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="homographs.js"></script>
+  <script src="hidemyname.js"></script>
+  <link rel="stylesheet" href="bootstrap.4.3.1.min.css">
+  <style>
+    body {
+      background-color: lightblue;
+    }
+    .menu {
+      position: absolute;
+      visibility: hidden;
+    }
+    button+.menu:active,
+    button:focus+.menu {
+      visibility: visible;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container mt-3">
-<p class="ml-3">Generate homographed name.</p>
+  <div class="container mt-3">
+    <p class="ml-3">Generate homographed name.</p>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-default">Your name</span>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Your name</span>
+      </div>
+      <input id="name" name="name" value="" onKeyDown="if(event.keyCode==13) hide();" type="text" class="form-control"
+        aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-primary font-weight-bold" onclick="hide()">Hide</button>
+      <button class="btn btn-info ml-2" onclick="demo()">Demo</button>
+    </div>
+
+    <!--result box-->
+    <div id="resultparent" class="card mt-3">
+      <div class="card-body">
+        <p id="result" class="card-text"></p>
+      </div>
+    </div>
+
+    <!--command line box-->
+    <div id="literalparent" class="card mt-3 bg-dark text-light">
+      <div class="card-body">
+        <p id="literal" class="card-text text-monospace"></p>
+      </div>
+    </div>
+
+    <!--error display-->
+    <div id="errorparent" class="mt-3 alert alert-warning collapse">
+      <p id="error" class="card-text"></p>
+    </div>
+
+    <!--options-->
+    <div id="options" class="mt-3">
+    <!-- https://www.simonewebdesign.it/pure-css-onclick-context-menu/ -->
+    <button class="btn btn-secondary">Chance</button>
+      <div class="menu list-group">
+          <button onclick="setChance(0.33);" type="button" class="list-group-item list-group-item-action">33%</button>
+          <button onclick="setChance(1.00);" type="button" class="list-group-item list-group-item-action">100%</button>
+      </div>
+    </div>
+
+
+    <a class="text-center fixed-bottom mb-2" href="https://github.com/elsamuko/Hide-my-Name">View on github</a>
   </div>
-  <input id="name" name="name" value="" onKeyDown="if(event.keyCode==13) hide();"
-         type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-</div>
 
-<div class="text-center">
-<button class="btn btn-primary font-weight-bold" onclick="hide()">Hide</button>
-<button class="btn btn-info ml-2" onclick="demo()">Demo</button>
-
-<select class="btn btn-light ml-2" id="selector-chance">
-  <option value="1">33% chance</option>
-  <option value="2">100% chance</option>
-</select>
-</div>
-
-<!--result box-->
-<div id="resultparent" class="card mt-3">
-  <div class="card-body">
-    <p id="result" class="card-text"></p>
-  </div>
-</div>
-
-<!--command line box-->
-<div id="literalparent" class="card mt-3 bg-dark text-light">
-  <div class="card-body">
-    <p id="literal" class="card-text text-monospace"></p>
-  </div>
-</div>
-
-<!--error display-->
-<div id="errorparent" class="mt-3 alert alert-warning collapse">
-    <p id="error" class="card-text"></p>
-</div>
-
-<a class="text-center fixed-bottom mb-2" href="https://github.com/elsamuko/Hide-my-Name">View on github</a>
-</div>
-
-<script>
-  (function() {
-    var res = window.location.hash.split('#');
-    if(res.length == 2) { document.getElementById("name").value = escapeHtml(unescape(res[1])); hide(); }
-    else { document.getElementById("name").value = ""; }
-  })();
-</script>
+  <script>
+    (function () {
+      var res = window.location.hash.split('#');
+      if (res.length == 2) { document.getElementById("name").value = escapeHtml(unescape(res[1])); hide(); }
+      else { document.getElementById("name").value = ""; }
+    })();
+  </script>
 </body>
+
 </html>
