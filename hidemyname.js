@@ -154,6 +154,16 @@ function setChance(val) {
     console.log(`chance set to ${chance}`);
 }
 
+function setWithMathematicalUnicodes(val) {
+    withMathematicalUnicodes = val;
+    console.log(`withMathematicalUnicodes set to ${val}`);
+}
+
+function setWithFullwidthUnicodes(val) {
+    withFullwidthUnicodes = val;
+    console.log(`withFullwidthUnicodes set to ${val}`);
+}
+
 function demo() {
     var lower = "the quick brown fox jumps over the lazy dog";
     var upper = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
