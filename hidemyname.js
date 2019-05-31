@@ -1,7 +1,7 @@
 
 // parameters
-var withMathematicalUnicodes = true;
-var withFullwidthUnicodes = true;
+var withMathematicalUnicodes = false;
+var withFullwidthUnicodes = false;
 var withSpaces = true;
 var chance = 0.333;
 
