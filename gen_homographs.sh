@@ -9,10 +9,13 @@ find "$TMP_DIR" -type f -exec grep -q "Service Temporarily Unavailable" {} \; -e
 function getDescription {
     if [ ! -f "$TMP_DIR/$1" ]; then
         local URL="https://unicode.org/cldr/utility/character.jsp?a=$1"
-        lynx -dump "$URL" > "$TMP_DIR/$1"
+        local USERAGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36"
+        # lynx -useragent="$USERAGENT" -dump "$URL" > "$TMP_DIR/$1"
+        curl -sA "$USERAGENT" "$URL" > "$TMP_DIR/$1"
     fi
     # 12th line | trim
-    sed '12q;d' "$TMP_DIR/$1" | awk '{$1=$1};1'
+    # sed '12q;d' "$TMP_DIR/$1" | awk '{$1=$1};1'
+    grep -m1 -Po "(?<=<tr><td class='bigName'>)(.*)(?=</td></tr>)" < "$TMP_DIR/$1"
 }
 
 KEYS=( "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"
