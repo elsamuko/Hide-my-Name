@@ -22,11 +22,9 @@ var homographs = {
           '\uff46'    ],  // ｆ FULLWIDTH LATIN SMALL LETTER F
   'g' : [ '\u{1d5c0}',    // 𝗀 MATHEMATICAL SANS-SERIF SMALL G
           '\uff47',       // ｇ FULLWIDTH LATIN SMALL LETTER G
-          '\u0581',       // ց ARMENIAN SMALL LETTER CO
           '\u0261'    ],  // ɡ LATIN SMALL LETTER SCRIPT G
   'h' : [ '\u{1d5c1}',    // 𝗁 MATHEMATICAL SANS-SERIF SMALL H
-          '\uff48',       // ｈ FULLWIDTH LATIN SMALL LETTER H
-          '\u0570'    ],  // հ ARMENIAN SMALL LETTER HO
+          '\uff48'    ],  // ｈ FULLWIDTH LATIN SMALL LETTER H
   'i' : [ '\u{1d5c2}',    // 𝗂 MATHEMATICAL SANS-SERIF SMALL I
           '\uff49',       // ｉ FULLWIDTH LATIN SMALL LETTER I
           '\u0456'    ],  // і CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I
@@ -44,13 +42,11 @@ var homographs = {
           '\uff4d',       // ｍ FULLWIDTH LATIN SMALL LETTER M
           '\u217f'    ],  // ⅿ SMALL ROMAN NUMERAL ONE THOUSAND
   'n' : [ '\u{1d5c7}',    // 𝗇 MATHEMATICAL SANS-SERIF SMALL N
-          '\uff4e',       // ｎ FULLWIDTH LATIN SMALL LETTER N
-          '\u0578'    ],  // ո ARMENIAN SMALL LETTER VO
+          '\uff4e'    ],  // ｎ FULLWIDTH LATIN SMALL LETTER N
   'o' : [ '\u{1d5c8}',    // 𝗈 MATHEMATICAL SANS-SERIF SMALL O
           '\uff4f',       // ｏ FULLWIDTH LATIN SMALL LETTER O
           '\u043e',       // о CYRILLIC SMALL LETTER O
-          '\u03bf',       // ο GREEK SMALL LETTER OMICRON
-          '\u0585'    ],  // օ ARMENIAN SMALL LETTER OH
+          '\u03bf'    ],  // ο GREEK SMALL LETTER OMICRON
   'p' : [ '\u{1d5c9}',    // 𝗉 MATHEMATICAL SANS-SERIF SMALL P
           '\uff50',       // ｐ FULLWIDTH LATIN SMALL LETTER P
           '\u0440'    ],  // р CYRILLIC SMALL LETTER ER
@@ -65,8 +61,7 @@ var homographs = {
   't' : [ '\u{1d5cd}',    // 𝗍 MATHEMATICAL SANS-SERIF SMALL T
           '\uff54'    ],  // ｔ FULLWIDTH LATIN SMALL LETTER T
   'u' : [ '\u{1d5ce}',    // 𝗎 MATHEMATICAL SANS-SERIF SMALL U
-          '\uff55',       // ｕ FULLWIDTH LATIN SMALL LETTER U
-          '\u057d'    ],  // ս ARMENIAN SMALL LETTER SEH
+          '\uff55'    ],  // ｕ FULLWIDTH LATIN SMALL LETTER U
   'v' : [ '\u{1d5cf}',    // 𝗏 MATHEMATICAL SANS-SERIF SMALL V
           '\uff56',       // ｖ FULLWIDTH LATIN SMALL LETTER V
           '\u2174',       // ⅴ SMALL ROMAN NUMERAL FIVE
@@ -87,8 +82,7 @@ var homographs = {
   'A' : [ '\u{1d5a0}',    // 𝖠 MATHEMATICAL SANS-SERIF CAPITAL A
           '\uff21',       // Ａ FULLWIDTH LATIN CAPITAL LETTER A
           '\u0410',       // А CYRILLIC CAPITAL LETTER A
-          '\u0391',       // Α GREEK CAPITAL LETTER ALPHA
-          '\u{10300}' ],  // 𐌀 OLD ITALIC LETTER A
+          '\u0391'    ],  // Α GREEK CAPITAL LETTER ALPHA
   'B' : [ '\u{1d5a1}',    // 𝖡 MATHEMATICAL SANS-SERIF CAPITAL B
           '\uff22',       // Ｂ FULLWIDTH LATIN CAPITAL LETTER B
           '\u0412'    ],  // В CYRILLIC CAPITAL LETTER VE
@@ -151,8 +145,7 @@ var homographs = {
           '\u0422'    ],  // Т CYRILLIC CAPITAL LETTER TE
   'U' : [ '\u{1d5b4}',    // 𝖴 MATHEMATICAL SANS-SERIF CAPITAL U
           '\uff35',       // Ｕ FULLWIDTH LATIN CAPITAL LETTER U
-          '\u144c',       // ᑌ CANADIAN SYLLABICS TE
-          '\u054d'    ],  // Ս ARMENIAN CAPITAL LETTER SEH
+          '\u144c'    ],  // ᑌ CANADIAN SYLLABICS TE
   'V' : [ '\u{1d5b5}',    // 𝖵 MATHEMATICAL SANS-SERIF CAPITAL V
           '\uff36',       // Ｖ FULLWIDTH LATIN CAPITAL LETTER V
           '\u142f'    ],  // ᐯ CANADIAN SYLLABICS PE
