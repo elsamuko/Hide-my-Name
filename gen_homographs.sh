@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TMP_DIR='/tmp/unicodes'
+TMP_DIR='tmp/unicodes'
 mkdir -p "$TMP_DIR"
 
 # remove ones, where unicode.org was down
