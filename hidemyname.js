@@ -149,19 +149,26 @@ function hide() {
     }
 }
 
-function setChance(val) {
-    chance = val;
+function toggleChance() {
+    if (chance == 1) {
+        chance = 0.333;
+    } else {
+        chance = 1;
+    }
     console.log(`chance set to ${chance}`);
+    return chance;
 }
 
-function setWithMathematicalUnicodes(val) {
-    withMathematicalUnicodes = val;
-    console.log(`withMathematicalUnicodes set to ${val}`);
+function toggleWithMathematicalUnicodes() {
+    withMathematicalUnicodes = !withMathematicalUnicodes;
+    console.log(`withMathematicalUnicodes set to ${withMathematicalUnicodes}`);
+    return withMathematicalUnicodes;
 }
 
-function setWithFullwidthUnicodes(val) {
-    withFullwidthUnicodes = val;
-    console.log(`withFullwidthUnicodes set to ${val}`);
+function toggleWithFullwidthUnicodes() {
+    withFullwidthUnicodes = !withFullwidthUnicodes;
+    console.log(`withFullwidthUnicodes set to ${withFullwidthUnicodes}`);
+    return withFullwidthUnicodes;
 }
 
 function demo() {

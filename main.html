@@ -15,16 +15,6 @@
       background-color: lightblue;
     }
 
-    .menu {
-      position: absolute;
-      visibility: hidden;
-    }
-
-    button+.menu:active,
-    button:focus+.menu {
-      visibility: visible;
-    }
-
     #github {
       z-index: -999;
     }
@@ -40,9 +30,18 @@
         button.classList.remove('btn-success');
       }
     }
-    function writeChance(val) {
+    function toggleMathematicalButton() {
+      var val = toggleWithMathematicalUnicodes();
+      toggleColor("button-math", val);
+    }
+    function toggleFullWidthButton() {
+      var val = toggleWithFullwidthUnicodes();
+      toggleColor("button-fw", val);
+    }
+    function toggleChanceButton() {
+      var val = 100 * toggleChance();
       var button = document.getElementById("button-chance");
-      button.innerHTML = "Chance : " + val;
+      button.innerHTML = "Chance : " + val.toFixed(0) + "%";
     }
   </script>
 </head>
@@ -90,35 +89,19 @@
         <div class="card-header">Options</div>
         <div class="card-body row">
 
-          <div class="mx-1" >
-            <!-- https://www.simonewebdesign.it/pure-css-onclick-context-menu/ -->
-            <button title="Set chance" id="button-chance" class="btn btn-secondary">Chance : 33%</button>
-            <div class="menu list-group">
-              <button onclick="setChance(0.33);writeChance('33%');" type="button"
-                class="list-group-item list-group-item-action">33%</button>
-              <button onclick="setChance(1.00);writeChance('100%');" type="button"
-                class="list-group-item list-group-item-action">100%</button>
-            </div>
+          <div class="mx-1">
+            <button onclick="toggleChanceButton();" title="Set chance" id="button-chance"
+              class="btn btn-secondary">Chance : 33%</button>
           </div>
 
-          <div class="mx-1" >
-            <button title="Mathematical Unicodes" id="button-math" class="btn btn-secondary">Mathematical</button>
-            <div class="menu list-group">
-              <button onclick="setWithMathematicalUnicodes(true);toggleColor('button-math',true);" type="button"
-                class="list-group-item list-group-item-action">With</button>
-              <button onclick="setWithMathematicalUnicodes(false);toggleColor('button-math',false);" type="button"
-                class="list-group-item list-group-item-action">Without</button>
-            </div>
+          <div class="mx-1">
+            <button onclick="toggleMathematicalButton();" title="Mathematical Unicodes" id="button-math"
+              class="btn btn-secondary">Mathematical</button>
           </div>
 
-          <div class="mx-1" >
-            <button title="Full Width Unicodes" id="button-fw" class="btn btn-secondary">Full Width</button>
-            <div class="menu list-group">
-              <button onclick="setWithFullwidthUnicodes(true);toggleColor('button-fw',true);" type="button"
-                class="list-group-item list-group-item-action">With</button>
-              <button onclick="setWithFullwidthUnicodes(false);toggleColor('button-fw',false);" type="button"
-                class="list-group-item list-group-item-action">Without</button>
-            </div>
+          <div class="mx-1">
+            <button onclick="toggleFullWidthButton();" title="Full Width Unicodes" id="button-fw"
+              class="btn btn-secondary">Full Width</button>
           </div>
 
         </div>
