@@ -38,6 +38,10 @@
       var val = toggleWithFullwidthUnicodes();
       toggleColor("button-fw", val);
     }
+    function toggleZeroWidthButton() {
+      var val = toggleWithZeroWidthSpace();
+      toggleColor("button-zwsp", val);
+    }
     function toggleChanceButton() {
       var val = 100 * toggleChance();
       var button = document.getElementById("button-chance");
@@ -95,13 +99,18 @@
           </div>
 
           <div class="mx-1">
-            <button onclick="toggleMathematicalButton();" title="Mathematical Unicodes" id="button-math"
+            <button onclick="toggleMathematicalButton();" title="With Mathematical Unicodes" id="button-math"
               class="btn btn-secondary">Mathematical</button>
           </div>
 
           <div class="mx-1">
-            <button onclick="toggleFullWidthButton();" title="Full Width Unicodes" id="button-fw"
+            <button onclick="toggleFullWidthButton();" title="With Full Width Unicodes" id="button-fw"
               class="btn btn-secondary">Full Width</button>
+          </div>
+
+          <div class="mx-1">
+            <button onclick="toggleZeroWidthButton();" title="Insert Zero Width Space" id="button-zwsp"
+              class="btn btn-success">Zero Width Space</button>
           </div>
 
         </div>

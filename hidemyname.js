@@ -2,6 +2,7 @@
 // parameters
 var withMathematicalUnicodes = false;
 var withFullwidthUnicodes = false;
+var withZeroWidthSpace = true;
 var withSpaces = true;
 var chance = 0.333;
 
@@ -62,7 +63,7 @@ function hideMyName(ascii) {
         }
     });
 
-    console.log(filtered);
+    // console.log(filtered);
 
     var graphed = Array.prototype.map.call(ascii, function (char) {
 
@@ -78,6 +79,12 @@ function hideMyName(ascii) {
             return char;
         }
     }).join('');
+
+    // insert ZERO WIDTH SPACE at random position
+    if (withZeroWidthSpace) {
+        var pos = Math.floor(Math.random() * graphed.length)
+        graphed = graphed.substr(0, pos) + '\u200b' + graphed.substr(pos);
+    }
 
     return graphed;
 }
@@ -169,6 +176,12 @@ function toggleWithFullwidthUnicodes() {
     withFullwidthUnicodes = !withFullwidthUnicodes;
     console.log(`withFullwidthUnicodes set to ${withFullwidthUnicodes}`);
     return withFullwidthUnicodes;
+}
+
+function toggleWithZeroWidthSpace() {
+    withZeroWidthSpace = !withZeroWidthSpace;
+    console.log(`withZeroWidthSpace set to ${withZeroWidthSpace}`);
+    return withZeroWidthSpace;
 }
 
 function demo() {
