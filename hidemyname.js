@@ -63,7 +63,11 @@ function hideMyName(ascii) {
         }
     });
 
-    // console.log(filtered);
+    // insert ZERO WIDTH SPACE at random position
+    if (withZeroWidthSpace) {
+        var pos = Math.floor(Math.random() * ascii.length)
+        ascii = ascii.substr(0, pos) + '\u200b' + ascii.substr(pos);
+    }
 
     var graphed = Array.prototype.map.call(ascii, function (char) {
 
@@ -79,12 +83,6 @@ function hideMyName(ascii) {
             return char;
         }
     }).join('');
-
-    // insert ZERO WIDTH SPACE at random position
-    if (withZeroWidthSpace) {
-        var pos = Math.floor(Math.random() * graphed.length)
-        graphed = graphed.substr(0, pos) + '\u200b' + graphed.substr(pos);
-    }
 
     return graphed;
 }
